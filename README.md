@@ -25,4 +25,4 @@ Este repositório contém o código-fonte da **SawirLator**, uma aplicação web
 
 ### 📸 Screenshot do Projeto
 
-![Demonstração do projeto da calculadora](img/Print-Sawir-calculator.png)
+![Demonstração do projeto da calculadora](img/sawir-print.png)
