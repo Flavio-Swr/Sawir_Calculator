@@ -1,3 +1,4 @@
+/* --- Reset Básico e Estilos Globais --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,136 +8,136 @@
 body {
     background: linear-gradient(to right, black, rgba(14, 24, 155, 0.712), black);
     color: rgb(255, 255, 255);
-    text-align: left;
+    font-family: "Montserrat", sans-serif;
+    min-height: 100vh; /* Garante que o corpo ocupe a altura toda da tela */
 }
 
 img {
     display: block;
     width: 200px;
     height: auto;
+    margin-bottom: 20px;
 }
 
-.container {
+/* --- Container Principal Flexbox --- */
+.main-container {
+    display: flex;
+    justify-content: space-around; /* Espaça os itens */
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo */
     padding: 40px;
-    /* Distância da borda */
+    gap: 40px; /* Espaço entre o texto e a calculadora */
+    width: 100%;
 }
 
-.container p {
-    font-family: "Montserrat", sans-serif;
+/* --- Seção de Texto Introdutório --- */
+.intro-text {
+    text-align: left;
+    max-width: 500px; /* Largura máxima para o texto */
+}
+
+.intro-text p {
     font-size: 2rem;
-    margin: 0;
-    margin-top: -40px;
 }
 
-.container h1 {
+.intro-text h1 {
     font-family: "Sora", sans-serif;
     color: #8c52ff;
     font-size: 4rem;
     margin-top: 20px;
-    /* Espaço entre p e h1 */
-    margin-bottom: 0;
 }
 
-.container h2 {
+.intro-text h2 {
     font-family: "Nunito Sans", sans-serif;
     font-style: italic;
     font-size: 1.7rem;
     color: #776e6e;
     margin-top: 10px;
-    /* Espaço entre h1 e h2 */
-    margin-bottom: 0;
 }
 
+/* --- Container da Calculadora --- */
+.calculator {
+    width: 300px;
+    border: 3px solid #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    background-color: #1a1a1a; /* Fundo sutil para a calculadora */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
 
+/* --- Display da Calculadora --- */
+.calculator-display {
+    background-color: #333;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 2.5rem; /* Fonte maior para melhor visibilidade */
+    padding: 20px;
+    text-align: right; /* Alinhamento padrão de calculadoras */
+    border-radius: 8px;
+    margin-bottom: 15px; /* Espaço entre o display e os botões */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    min-height: 1.2em;
+    overflow: hidden; /* Evita que o texto saia do display */
+    word-wrap: break-word; /* Quebra o texto se for muito longo */
+}
+
+/* --- Grade de Botões --- */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 60px);
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
     gap: 10px;
-    justify-content: end;
-    margin-right: 13rem;
-    margin-top: -20rem;
 }
 
 .buttons button {
     height: 60px;
     font-size: 1.5rem;
-    background-color: #8c52ff;
+    background-color: #5d3aab; /* Tom de roxo mais sóbrio */
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    /* Adiciona uma transição suave para 'transform' e 'background-color' */
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
 .buttons button:hover {
     background-color: #6c3fcc;
-    /* Move o botão 2 pixels para baixo */
-    transform: translateY(2px);
 }
 
-/* Nova regra para o botão de igual (classe 'igual' no HTML) */
+.buttons button:active {
+    transform: scale(0.95); /* Efeito de clique mais moderno */
+}
+
 .buttons .igual {
-    background-color: #ffd700; /* Cor amarela para o botão de igual */
+    background-color: #ffd700;
+    color: #333;
+    font-weight: bold;
 }
 
-/* Efeito hover para o botão de igual */
 .buttons .igual:hover {
-    background-color: #af9503; /* Um amarelo um pouco mais escuro ao passar o mouse */
-    transform: translateY(2px); /* Também move o botão de igual 2 pixels para baixo */
+    background-color: #ffea00;
 }
 
-/* Adicionei o efeito de "afundar" também para o botão 'C' (classe 'clear') */
-
-.buttons .clear{
-    background-color: #ff0022b4;
+.buttons .clear {
+    background-color: #ff4d4d;
 }
 
 .buttons .clear:hover {
-    transform: translateY(2px);
-    background-color: #db2039;
+    background-color: #ff6666;
 }
 
-.retangulo {
-    border:3px solid #ffffff;
-    height: 350px;
-    width: 300px;
-    border-radius: 9px;
-    margin-left: 64rem;
-    margin-top: -21rem;
-    z-index: 1;
-    
-}
+/* --- MEDIA QUERY PARA RESPONSIVIDADE --- */
+/* Para telas com largura máxima de 900px */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column; /* Itens em coluna */
+        text-align: center; /* Centraliza todo o texto */
+    }
 
-.linha-horizontal {
-     /* Estilos da linha */
-  border: none; /* Remove a borda padrão do hr */
-  border-top: 3px solid #ccc; /* Cor e espessura da linha */
-  margin: 56px 0; /* Espaçamento acima e abaixo da linha */
-  width: 100%; /* Largura da linha em relação à div pai */
-  margin-left: auto; /* Centraliza a linha horizontalmente */
-  margin-right: auto; /* Centraliza a linha horizontalmente */
-}
+    .intro-text {
+        text-align: center;
+    }
 
-.calculator-display {
-    background-color: #333;
-    color: white;
-    font-family: 'Sora', sans-serif;
-    font-size: 1.2em; /* Reduzi o tamanho da fonte */
-    padding: 20px; /* Reduzi o padding vertical e horizontal */
-    text-align: left;
-    border-radius: 8px;
-    margin-left: 64.2rem;
-    transform: translateY(-328px);
-    max-width: 295px; /* Reduzi a largura máxima */
-    height: 54px; /* Reduzi a altura */
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-    z-index: -1;
-}
-
-#display {
-    display: block;
-    min-height: 1.2em;
-    overflow: hidden;
-    white-space: nowrap;
+    .intro-text img {
+        margin: 0 auto 20px; /* Centraliza a logo */
+    }
 }
