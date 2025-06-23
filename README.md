@@ -20,7 +20,7 @@ Este repositório contém o código-fonte da **SawirLator**, uma aplicação web
 ## 🚀 Como Executar
 
 1.  Clone este repositório para a sua máquina local.
-2.  Abra o arquivo `index.html` em qualquer navegador web moderno.
+2.  Abra o arquivo em qualquer navegador web moderno.
 
 
 ### 📸 Screenshot do Projeto
