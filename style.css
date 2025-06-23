@@ -125,12 +125,11 @@ img {
     background-color: #ff6666;
 }
 
-/* --- MEDIA QUERY PARA RESPONSIVIDADE --- */
 /* Para telas com largura máxima de 900px */
 @media (max-width: 900px) {
     .main-container {
-        flex-direction: column; /* Itens em coluna */
-        text-align: center; /* Centraliza todo o texto */
+        flex-direction: column; 
+        text-align: center; 
     }
 
     .intro-text {
@@ -138,6 +137,6 @@ img {
     }
 
     .intro-text img {
-        margin: 0 auto 20px; /* Centraliza a logo */
+        margin: 0 auto 20px; 
     }
 }
